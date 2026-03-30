@@ -1,0 +1,10 @@
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.MuiTypography-root,
+.MuiButton-root,
+.MuiInputBase-root {
+  font-family: "Poppins", sans-serif !important;
+}
