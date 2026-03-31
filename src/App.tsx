@@ -1,7 +1,7 @@
-import AppRoutes from "./routes/AppRoutes";
+import Layout from "./layout/Layout";
 
 const App = () => {
-  return <AppRoutes />;
+  return <Layout />;
 };
 
 export default App;

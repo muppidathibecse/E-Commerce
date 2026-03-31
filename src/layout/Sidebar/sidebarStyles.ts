@@ -7,7 +7,6 @@ export const Section = styled("div")({
   flexDirection: "column",
   alignItems: "start",
   gap: "10px",
-  backgroundColor: "#1b2730",
 });
 
 export const NavContainer = styled("div")({

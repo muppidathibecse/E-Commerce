@@ -1,15 +1,17 @@
 import { Box } from "@mui/material";
-import {
-  Logo,
-  LogoName,
-  NavContainer,
-  NavIcon,
-  NavItem,
-  Section,
-} from "./sidebarStyles";
-import { NAV_ITEMS } from "../../../data/staticData";
 
-const Sidebar = () => {
+import { NavContainer, NavIcon, NavItem, Section } from "./sidebarStyles";
+import { NAV_ITEMS } from "../../data/staticData";
+
+type ChildProps = {
+  onNavItemClick: (item: string) => void;
+};
+
+const Sidebar = ({ onNavItemClick }: ChildProps) => {
+  const handleClick = (item: string) => {
+    onNavItemClick(item);
+  };
+
   return (
     <Section>
       {/* <Box
@@ -22,7 +24,9 @@ const Sidebar = () => {
         {NAV_ITEMS.map((item) => (
           <NavContainer key={item.id}>
             <NavIcon src={item.icon}></NavIcon>
-            <NavItem>{item.name}</NavItem>
+            <NavItem onClick={() => handleClick(item.name)}>
+              {item.name}
+            </NavItem>
           </NavContainer>
         ))}
       </Box>
