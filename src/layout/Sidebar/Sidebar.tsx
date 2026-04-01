@@ -4,11 +4,11 @@ import { NavContainer, NavIcon, NavItem, Section } from "./sidebarStyles";
 import { NAV_ITEMS } from "../../data/staticData";
 
 type ChildProps = {
-  onNavItemClick: (item: string) => void;
+  onNavItemClick: (item: any) => void;
 };
 
 const Sidebar = ({ onNavItemClick }: ChildProps) => {
-  const handleClick = (item: string) => {
+  const handleClick = (item: any) => {
     onNavItemClick(item);
   };
 
@@ -24,7 +24,7 @@ const Sidebar = ({ onNavItemClick }: ChildProps) => {
         {NAV_ITEMS.map((item) => (
           <NavContainer key={item.id}>
             <NavIcon src={item.icon}></NavIcon>
-            <NavItem onClick={() => handleClick(item.name)}>
+            <NavItem onClick={() => handleClick(item)}>
               {item.name}
             </NavItem>
           </NavContainer>

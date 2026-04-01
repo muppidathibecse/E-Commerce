@@ -170,26 +170,37 @@ export const NAV_ITEMS = [
   {
     id: 1,
     name: "Combo Offers",
-    icon: "./assets/icons/offerBoldIcon.svg",
+    slug:'combo-offers',
+    icon: "/assets/icons/offerBoldIcon.svg",
   },
   {
     id: 2,
     name: "Mobiles",
-    icon: "./assets/icons/deviceMobileBoldIcon.svg",
+    slug:'mobiles',
+    icon: "/assets/icons/deviceMobileBoldIcon.svg",
   },
   {
     id: 3,
     name: "Tv",
-    icon: "./assets/icons/tvBoldIcon.svg",
+    slug:'tv',
+    icon: "/assets/icons/tvBoldIcon.svg",
   },
   {
     id: 4,
     name: "Watches",
-    icon: "./assets/icons/watchBoldIcon.svg",
+    slug:'watches',
+    icon: "/assets/icons/watchBoldIcon.svg",
   },
   {
     id: 5,
     name: "Electronics",
-    icon: "./assets/icons/deviceMobileBoldIcon.svg",
+    slug:'electronics',
+    icon: "/assets/icons/deviceMobileBoldIcon.svg",
+  },
+   {
+    id: 6,
+    name: "Order Summary",
+    slug:'order-summary',
+    icon: "/assets/icons/handBagBoldIcon.svg",
   },
 ];

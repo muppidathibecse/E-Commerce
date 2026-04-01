@@ -22,7 +22,7 @@ const Home = ({ product }: { product: string }) => {
   const navigate = useNavigate();
   const { productSlug } = useParams();
   const [apiResponse, setApiResponse] = useState<ProductItem[]>([]);
-
+  console.log(productSlug);
   const handleCardClick = (item: any) => {
     const id = item.id;
     const slug = item.cardName.toLowerCase().replace(/\s+/g, "-");

@@ -6,6 +6,7 @@ import Header from "./Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
 import Home from "../pages/Home/Home";
 import ConfirmOrder from "../pages/ConfirmOrder/ConfirmOrder";
+import OrderSummary from "../pages/OrderSummary/OrderSummary";
 
 const LayoutWrapper = styled("div")({
   display: "flex",
@@ -34,15 +35,17 @@ const Layout = () => {
   const navigate = useNavigate();
   const [selectedItem, setSelectedItem] = useState<string>("Combo Offers");
 
-  const handleNavItem = (item: string) => {
-    setSelectedItem(item);
-    const slug = item.toLowerCase().replace(/\s+/g, "-");
-    navigate(`/product/${slug}`);
+  const handleNavItem = (item: any) => {
+    if (item.slug === "order-summary") {
+      navigate("/order-summary");
+    } else {
+      setSelectedItem(item.name);
+      navigate(`/product/${item.slug}`);
+    }
   };
 
   return (
     <LayoutWrapper>
-      
       <SidebarWrapper>
         <Sidebar onNavItemClick={handleNavItem} />
       </SidebarWrapper>
@@ -57,10 +60,10 @@ const Layout = () => {
               element={<Home product={selectedItem} />}
             />
             <Route path="/product/:id/:slug" element={<ConfirmOrder />} />
+              <Route path="/order-summary" element={<OrderSummary />} />
           </Routes>
         </Content>
       </Main>
-      
     </LayoutWrapper>
   );
 };
