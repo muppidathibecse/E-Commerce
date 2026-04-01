@@ -33,7 +33,7 @@ const Content = styled("div")({});
 
 const Layout = () => {
   const navigate = useNavigate();
-  const [selectedItem, setSelectedItem] = useState<string>("Combo Offers");
+  const [selectedItem, setSelectedItem] = useState<string>("Mobiles");
 
   const handleNavItem = (item: any) => {
     if (item.slug === "order-summary") {
@@ -54,13 +54,13 @@ const Layout = () => {
         <Header />
         <Content>
           <Routes>
-            <Route path="/" element={<Home product={selectedItem} />} />
+            <Route path="/" element={<OrderSummary/>} />
             <Route
               path="/product/:productSlug"
               element={<Home product={selectedItem} />}
             />
             <Route path="/product/:id/:slug" element={<ConfirmOrder />} />
-              <Route path="/order-summary" element={<OrderSummary />} />
+            <Route path="/order-summary" element={<OrderSummary />} />
           </Routes>
         </Content>
       </Main>

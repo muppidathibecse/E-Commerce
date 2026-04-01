@@ -93,7 +93,7 @@ export const ColorName = styled("span")({
 
 export const ColorSpan = styled("span")({
   fontWeight: 200,
-  color: "#6e6c6c",
+  color: "#2e2c2c",
 });
 
 export const ColorDetails = styled("div")({
@@ -115,7 +115,7 @@ export const SizeName = styled("span")({
 
 export const SizeSpan = styled("span")({
   fontWeight: 200,
-  color: "#6e6c6c",
+  color: "#1d1c1c",
 });
 
 export const ButtonContainer = styled("div")({
@@ -161,4 +161,8 @@ export const BackButton = styled("button")({
   borderRadius: "10px",
   cursor: "pointer",
   marginTop: "10px",
+});
+
+export const MustFill = styled("span")({
+  color: "red",
 });

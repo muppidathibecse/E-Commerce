@@ -24,6 +24,8 @@ const Home = ({ product }: { product: string }) => {
   const [apiResponse, setApiResponse] = useState<ProductItem[]>([]);
   console.log(productSlug);
   const handleCardClick = (item: any) => {
+    console.log("Selected Item:", item);
+
     const id = item.id;
     const slug = item.cardName.toLowerCase().replace(/\s+/g, "-");
     const itemName =
@@ -66,8 +68,8 @@ const Home = ({ product }: { product: string }) => {
               <ReviewLabel>{item.cardReview}</ReviewLabel>
             </CardReviews>
             <CardAmount>
-              <NewPrice>{item.newRs}</NewPrice>
-              <OldPrice>{item.oldRs}</OldPrice>
+              <NewPrice>₹{item.newRs}</NewPrice>
+              <OldPrice>₹{item.oldRs}</OldPrice>
             </CardAmount>
           </Card>
         ))}

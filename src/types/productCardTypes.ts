@@ -10,6 +10,6 @@ export type ProductItem = {
   cardImage: string;
   cardReview: string;
   noOfStar: number;
-  newRs: string;
-  oldRs: string;
+  newRs: number;
+  oldRs: number;
 };

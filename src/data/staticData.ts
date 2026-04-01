@@ -1,39 +1,6 @@
 export const API_RESPONSE = [
   {
     id: 1,
-    productName: "Combo Offers",
-    data: [
-      {
-        id: 1,
-        cardName: "Combo Offer 1",
-        cardImage: "/assets/productIcons/comboOffer.jpg",
-        cardReview: "2.3M+ reviews",
-        noOfStar: 4,
-        newRs: "₹89,999",
-        oldRs: "₹1,24,999",
-      },
-      {
-        id: 2,
-        cardName: "Combo Offer 2",
-        cardImage: "/assets/productIcons/comboOffer-1.jpg",
-        cardReview: "1.1M+ reviews",
-        noOfStar: 2,
-        newRs: "₹39,999",
-        oldRs: "₹44,999",
-      },
-      {
-        id: 3,
-        cardName: "Combo Offer 3",
-        cardImage: "/assets/productIcons/comboOffer-2.jpg",
-        cardReview: "3.5M+ reviews",
-        noOfStar: 5,
-        newRs: "₹21,999",
-        oldRs: "₹27,999",
-      },
-    ],
-  },
-  {
-    id: 2,
     productName: "Mobiles",
     data: [
       {
@@ -42,8 +9,23 @@ export const API_RESPONSE = [
         cardImage: "/assets/productIcons/mobile-1.jpg",
         cardReview: "2.3M+ reviews",
         noOfStar: 4,
-        newRs: "₹89,999",
-        oldRs: "₹1,24,999",
+        newRs: 5,
+        oldRs: 10,
+        colors: [
+          {
+            colorCode: "#501c43",
+            colorName: "Pink",
+          },
+          {
+            colorCode: "#000000",
+            colorName: "Black",
+          },
+          {
+            colorCode: "#a3a3a3",
+            colorName: "Gray",
+          },
+        ],
+        sizes: [12 , 25 ,52],
       },
       {
         id: 2,
@@ -51,8 +33,23 @@ export const API_RESPONSE = [
         cardImage: "/assets/productIcons/mobile-2.jpg",
         cardReview: "1.1M+ reviews",
         noOfStar: 2,
-        newRs: "₹39,999",
-        oldRs: "₹44,999",
+        newRs: 45,
+        oldRs: 50,
+        colors: [
+          {
+            colorCode: "#0003bd",
+            colorName: "Pink",
+          },
+          {
+            colorCode: "#ff1b1b",
+            colorName: "Black",
+          },
+          {
+            colorCode: "#93e6ff",
+            colorName: "Gray",
+          },
+        ],
+        sizes: [1 , 52 ,55],
       },
       {
         id: 3,
@@ -60,13 +57,28 @@ export const API_RESPONSE = [
         cardImage: "/assets/productIcons/mobile-3.jpg",
         cardReview: "3.5M+ reviews",
         noOfStar: 5,
-        newRs: "₹21,999",
-        oldRs: "₹27,999",
+        newRs: 10,
+        oldRs: 20,
+        colors: [
+          {
+            colorCode: "#fff235",
+            colorName: "Pink",
+          },
+          {
+            colorCode: "#000000",
+            colorName: "Black",
+          },
+          {
+            colorCode: "#145a6b",
+            colorName: "Gray",
+          },
+        ],
+        sizes: [128 , 252 ,552],
       },
     ],
   },
   {
-    id: 3,
+    id: 2,
     productName: "Tv",
     data: [
       {
@@ -75,8 +87,23 @@ export const API_RESPONSE = [
         cardImage: "/assets/productIcons/tv-1.jpg",
         cardReview: "2.3M+ reviews",
         noOfStar: 4,
-        newRs: "₹89,999",
-        oldRs: "₹1,24,999",
+        newRs: 89999,
+        oldRs: 124999,
+        colors: [
+          {
+            colorCode: "#ff8be2",
+            colorName: "Pink",
+          },
+          {
+            colorCode: "#000000",
+            colorName: "Black",
+          },
+          {
+            colorCode: "#a3a3a3",
+            colorName: "Gray",
+          },
+        ],
+        sizes: [128 , 252 ,552],
       },
       {
         id: 2,
@@ -84,8 +111,23 @@ export const API_RESPONSE = [
         cardImage: "/assets/productIcons/tv-2.jpg",
         cardReview: "1.1M+ reviews",
         noOfStar: 2,
-        newRs: "₹39,999",
-        oldRs: "₹44,999",
+        newRs: 39999,
+        oldRs: 44999,
+        colors: [
+          {
+            colorCode: "#ff8be2",
+            colorName: "Pink",
+          },
+          {
+            colorCode: "#000000",
+            colorName: "Black",
+          },
+          {
+            colorCode: "#a3a3a3",
+            colorName: "Gray",
+          },
+        ],
+        sizes: [128 , 252 ,552],
       },
       {
         id: 3,
@@ -93,74 +135,23 @@ export const API_RESPONSE = [
         cardImage: "/assets/productIcons/tv-3.jpg",
         cardReview: "3.5M+ reviews",
         noOfStar: 5,
-        newRs: "₹21,999",
-        oldRs: "₹27,999",
-      },
-    ],
-  },
-  {
-    id: 4,
-    productName: "Watches",
-    data: [
-      {
-        id: 1,
-        cardName: "Elegance Luxury Analog Watch",
-        cardImage: "/assets/productIcons/watch-1.jpg",
-        cardReview: "2.3M+ reviews",
-        noOfStar: 4,
-        newRs: "₹89,999",
-        oldRs: "₹1,24,999",
-      },
-      {
-        id: 2,
-        cardName: "Sonata Formal Analog Watch",
-        cardImage: "/assets/productIcons/watch-2.jpg",
-        cardReview: "1.1M+ reviews",
-        noOfStar: 2,
-        newRs: "₹39,999",
-        oldRs: "₹44,999",
-      },
-      {
-        id: 3,
-        cardName: "Tital Luxury Analog Watch",
-        cardImage: "/assets/productIcons/watch-3.jpg",
-        cardReview: "3.5M+ reviews",
-        noOfStar: 5,
-        newRs: "₹21,999",
-        oldRs: "₹27,999",
-      },
-    ],
-  },
-  {
-    id: 5,
-    productName: "Electronics",
-    data: [
-      {
-        id: 1,
-        cardName: "Home Theater Speaker System",
-        cardImage: "/assets/productIcons/e-1.jpg",
-        cardReview: "2.3M+ reviews",
-        noOfStar: 4,
-        newRs: "₹89,999",
-        oldRs: "₹1,24,999",
-      },
-      {
-        id: 2,
-        cardName: "Renesa Prime Remote Ceiling Fan",
-        cardImage: "/assets/productIcons/e-2.jpg",
-        cardReview: "1.1M+ reviews",
-        noOfStar: 2,
-        newRs: "₹39,999",
-        oldRs: "₹44,999",
-      },
-      {
-        id: 3,
-        cardName: "JBL - Portable Bluetooth Speakers",
-        cardImage: "/assets/productIcons/e-3.jpg",
-        cardReview: "3.5M+ reviews",
-        noOfStar: 5,
-        newRs: "₹21,999",
-        oldRs: "₹27,999",
+        newRs: 21999,
+        oldRs: 27999,
+        colors: [
+          {
+            colorCode: "#ff8be2",
+            colorName: "Pink",
+          },
+          {
+            colorCode: "#000000",
+            colorName: "Black",
+          },
+          {
+            colorCode: "#a3a3a3",
+            colorName: "Gray",
+          },
+        ],
+        sizes: [128 , 252 ,552],
       },
     ],
   },
@@ -169,38 +160,20 @@ export const API_RESPONSE = [
 export const NAV_ITEMS = [
   {
     id: 1,
-    name: "Combo Offers",
-    slug:'combo-offers',
-    icon: "/assets/icons/offerBoldIcon.svg",
+    name: "Mobiles",
+    slug: "mobiles",
+    icon: "/assets/icons/deviceMobileBoldIcon.svg",
   },
   {
     id: 2,
-    name: "Mobiles",
-    slug:'mobiles',
-    icon: "/assets/icons/deviceMobileBoldIcon.svg",
-  },
-  {
-    id: 3,
     name: "Tv",
-    slug:'tv',
+    slug: "tv",
     icon: "/assets/icons/tvBoldIcon.svg",
   },
   {
-    id: 4,
-    name: "Watches",
-    slug:'watches',
-    icon: "/assets/icons/watchBoldIcon.svg",
-  },
-  {
-    id: 5,
-    name: "Electronics",
-    slug:'electronics',
-    icon: "/assets/icons/deviceMobileBoldIcon.svg",
-  },
-   {
-    id: 6,
+    id: 3,
     name: "Order Summary",
-    slug:'order-summary',
+    slug: "order-summary",
     icon: "/assets/icons/handBagBoldIcon.svg",
   },
 ];

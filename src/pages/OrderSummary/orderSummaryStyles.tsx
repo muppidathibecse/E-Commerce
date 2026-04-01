@@ -19,7 +19,7 @@ export const OrderLayout = styled("div")({
 });
 export const OrderContainer = styled("div")({
   display: "flex",
-  justifyContent: "space-between",
+  gap:'40px',
   backgroundColor: "white",
   boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
   borderRadius: "10px",
@@ -182,15 +182,14 @@ export const FreeText = styled("span")({
 });
 
 export const OldDeliveryPrice = styled("span")({
-  color: "#979797",
-  textDecoration: "line-through",
+  color: "#000000",
 });
 
 export const PlaceOrderButtons = styled("div")({
-  marginTop: "20px",
+  marginTop: "25px",
   display: "flex",
   gap: "10px",
-  justifyContent: "end",
+  justifyContent: "start",
 });
 
 export const PlaceOrderButton = styled("button")({

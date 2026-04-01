@@ -39,3 +39,16 @@ export const LogoName = styled("p")({
   fontSize: "26px",
   fontWeight: "bold",
 });
+
+export const Circle = styled("div")({
+  backgroundColor: "white",
+  color: "black",
+  borderRadius: "100%",
+  height: "30px",
+  width: "30px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  fontSize:'18px',
+  fontWeight:600
+});
