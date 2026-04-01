@@ -1,4 +1,4 @@
-import { SearchButton, SearchInput, Box } from "./headerStyles";
+import { Box } from "./headerStyles";
 
 const Header = () => {
   return (

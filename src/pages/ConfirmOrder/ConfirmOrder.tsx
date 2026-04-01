@@ -33,7 +33,7 @@ const ConfirmOrder = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const product = location.state;
-
+  console.log(product?.noOfStar);
   return (
     <Section>
       <Container>
@@ -45,11 +45,9 @@ const ConfirmOrder = () => {
             <Title>{product?.cardName}</Title>
           </Details>
           <Reviews>
-            <StarIcon sx={{ fontSize: 20, color: "#f8bf04" }} />
-            <StarIcon sx={{ fontSize: 20, color: "#f8bf04" }} />
-            <StarIcon sx={{ fontSize: 20, color: "#f8bf04" }} />
-            <StarIcon sx={{ fontSize: 20, color: "#f8bf04" }} />
-            <StarIcon sx={{ fontSize: 20, color: "#f8bf04" }} />
+            {[...Array(product.noOfStar)].map((_, index) => (
+              <StarIcon key={index} sx={{ fontSize: 20, color: "#06202B" }} />
+            ))}
             <ReviewLabel>{product?.cardReview}</ReviewLabel>
           </Reviews>
           <Prices>

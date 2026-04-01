@@ -9,7 +9,7 @@ export type ProductItem = {
   cardName: string;
   cardImage: string;
   cardReview: string;
-  noOfStart: number;
+  noOfStar: number;
   newRs: string;
   oldRs: string;
 };

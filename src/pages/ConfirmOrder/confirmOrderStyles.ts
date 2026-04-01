@@ -41,7 +41,7 @@ export const Details = styled("div")({
 
 export const Title = styled("h1")({
   fontWeight: "bold",
-  color: "black",
+  color: "#06202B",
   fontSize: "24px",
   margin: 0,
   padding: "0px 0px",
@@ -67,7 +67,7 @@ export const Prices = styled("div")({
 });
 
 export const NewRs = styled("span")({
-  color: "black",
+  color: "#06202B",
   fontWeight: "bold",
   fontSize: "27px",
 });
@@ -126,7 +126,7 @@ export const ButtonContainer = styled("div")({
 
 export const AddCartButton = styled("button")({
   width: "100%",
-  backgroundColor: "black",
+  backgroundColor: "#06202B",
   fontWeight: 300,
   fontSize: "18px",
   color: "white",
@@ -142,7 +142,7 @@ export const LikeButton = styled("button")({
   padding: "5px",
   borderRadius: "10px",
   backgroundColor: "white",
-  border: "1px solid #555555",
+  border: "1px solid #06202B",
   cursor: "pointer",
 });
 
@@ -153,10 +153,10 @@ export const HeartIcon = styled("img")({
 
 export const BackButton = styled("button")({
   fontWeight: 400,
-  backgroundColor: "#fff",
-  border: "1px solid black",
+  backgroundColor: "#ecece7",
+  border: "1px solid #06202B",
   fontSize: "18px",
-  color: "black",
+  color: "#06202B",
   padding: "8px 15px",
   borderRadius: "10px",
   cursor: "pointer",

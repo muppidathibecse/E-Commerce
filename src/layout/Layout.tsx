@@ -12,14 +12,14 @@ const LayoutWrapper = styled("div")({
 });
 
 const SidebarWrapper = styled("div")({
-  backgroundColor: "#1b2561",
+  backgroundColor: "#06202B",
   width: "260px",
   height: "100vh",
   position: "fixed",
 });
 
 const Main = styled("div")({
-  backgroundColor: "#f0e8e8",
+  backgroundColor: "#F5EEDD",
   paddingBottom: "20px",
   minHeight: "100vh",
   marginLeft: "260px",

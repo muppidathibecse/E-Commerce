@@ -5,9 +5,9 @@ export const Section = styled("section")({});
 
 export const Container = styled("div")({
   display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, 300px)", 
+  gridTemplateColumns: "repeat(auto-fit, 300px)",
   gap: "50px",
-  justifyContent: "center", 
+  justifyContent: "center",
 });
 
 export const Card = styled(Paper)({
@@ -19,7 +19,8 @@ export const Card = styled(Paper)({
   alignItems: "start",
   gap: "10px",
   cursor: "pointer",
-  borderRadius: "15px !important",
+  backgroundColor: "#f3f1ec !important",
+  borderRadius: "5px !important",
 });
 
 export const CardLogo = styled("img")({
@@ -29,6 +30,7 @@ export const CardLogo = styled("img")({
 });
 
 export const CardTitle = styled("p")({
+  color:'#06202B',
   fontWeight: "bold",
   fontSize: "18px",
 });
@@ -53,7 +55,7 @@ export const OldPrice = styled("span")({
   textDecoration: "line-through",
 });
 export const NewPrice = styled("span")({
-  color: "black",
+  color: "#06202B",
   fontWeight: "bold",
 });
 
@@ -68,5 +70,5 @@ export const Heading = styled("h1")({
   margin: "10px 0px",
   textAlign: "center",
   fontWeight: "bold",
-  color: "black",
+  color: "#06202B",
 });

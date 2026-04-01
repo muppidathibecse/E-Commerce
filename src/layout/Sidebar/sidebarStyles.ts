@@ -29,7 +29,7 @@ export const Logo = styled("img")({
 });
 
 export const NavItem = styled("p")({
-  color: "white",
+  color: "#F5EEDD",
   fontSize: "20px",
   cursor: "pointer",
 });

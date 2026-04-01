@@ -60,11 +60,9 @@ const Home = ({ product }: { product: string }) => {
             <CardLogo src={item.cardImage}></CardLogo>
             <CardTitle>{item.cardName}</CardTitle>
             <CardReviews>
-              <StarIcon sx={{ fontSize: 20, color: "#f8bf04" }} />
-              <StarIcon sx={{ fontSize: 20, color: "#f8bf04" }} />
-              <StarIcon sx={{ fontSize: 20, color: "#f8bf04" }} />
-              <StarIcon sx={{ fontSize: 20, color: "#f8bf04" }} />
-              <StarIcon sx={{ fontSize: 20, color: "#f8bf04" }} />
+              {[...Array(item.noOfStar)].map((_, index) => (
+                <StarIcon key={index} sx={{ fontSize: 20, color: "#06202B" }} />
+              ))}
               <ReviewLabel>{item.cardReview}</ReviewLabel>
             </CardReviews>
             <CardAmount>
