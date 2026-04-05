@@ -6,7 +6,7 @@ const EmptyUI = () => {
   return (
     <>
       <Section>
-        <Title>Your Card is Empty</Title>
+        <Title>Your Cart is Empty</Title>
         <Description>Go to Home Page and Select your Card</Description>
         <StartButton onClick={() => navigate("/product/mobiles")}>
           Let's Go

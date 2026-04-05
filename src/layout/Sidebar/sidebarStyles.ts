@@ -1,10 +1,11 @@
 import { styled } from "@mui/material/styles";
 
 export const Section = styled("div")({
-  padding: "10px",
+  padding: "10px", 
   height: "100vh",
   display: "flex",
   flexDirection: "column",
+  justifyContent:'space-between',
   alignItems: "start",
   gap: "10px",
 });
@@ -41,8 +42,8 @@ export const LogoName = styled("p")({
 });
 
 export const Circle = styled("div")({
-  backgroundColor: "white",
-  color: "black",
+  backgroundColor: "red",
+  color: "white",
   borderRadius: "100%",
   height: "30px",
   width: "30px",
@@ -50,5 +51,5 @@ export const Circle = styled("div")({
   alignItems: "center",
   justifyContent: "center",
   fontSize:'18px',
-  fontWeight:600
+  fontWeight:400
 });

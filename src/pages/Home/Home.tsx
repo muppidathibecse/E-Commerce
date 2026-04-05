@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import StarIcon from "@mui/icons-material/Star";
 
 import {
@@ -20,25 +20,13 @@ import { API_RESPONSE } from "../../data/staticData";
 
 const Home = ({ product }: { product: string }) => {
   const navigate = useNavigate();
-  const { productSlug } = useParams();
   const [apiResponse, setApiResponse] = useState<ProductItem[]>([]);
-  console.log(productSlug);
   const handleCardClick = (item: any) => {
-    console.log("Selected Item:", item);
-
     const id = item.id;
     const slug = item.cardName.toLowerCase().replace(/\s+/g, "-");
-    const itemName =
-      productSlug
-        ?.split("-")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ") || "";
-    const category = API_RESPONSE.find(
-      (cat) => cat.productName.toLowerCase() === itemName.toLowerCase(),
-    );
-    const selectedItem = category?.data.find((prod) => prod.id === id);
+
     navigate(`/product/${id}/${slug}`, {
-      state: selectedItem,
+      state: item,
     });
   };
 

@@ -8,3 +8,40 @@ body {
 .MuiInputBase-root {
   font-family: "Poppins", sans-serif !important;
 }
+
+.custom-toast {
+  color: #06202b;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+.custom-toast .Toastify__progress-bar {
+  background: #06202b !important;
+}
+
+.custom-toast .Toastify__progress-bar--bg {
+  background: #06202b !important;
+}
+.custom-toast .Toastify__toast-icon svg {
+  fill: green !important;
+}
+
+.likes-toast {
+  color: #06202b;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+.likes-toast .Toastify__progress-bar {
+  background: #06202b !important;
+}
+
+.likes-toast .Toastify__progress-bar--bg {
+  background: #06202b !important;
+}
+
+.likes-icon {
+  font-size: 18px;
+}

@@ -151,6 +151,11 @@ export const HeartIcon = styled("img")({
   width: "30px",
 });
 
+export const ToastIcon = styled("img")({
+  height: "25px",
+  width: "25px",
+});
+
 export const BackButton = styled("button")({
   fontWeight: 400,
   backgroundColor: "#ecece7",

@@ -28,33 +28,60 @@ import {
   ButtonContainer,
   Section,
   MustFill,
+  ToastIcon,
 } from "./confirmOrderStyles";
 import { useState } from "react";
 import { useCart } from "../../contexts/CardContext";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ConfirmOrder = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const product = location.state;
-  const [selectedColor, setSelctedColor] = useState<string>("");
-  const [selectedSize, setSelctedSize] = useState<number>(0);
-  const { addToCart, cartItems } = useCart();
+  const [selectedSize, setSelctedSize] = useState<number>(product?.defaultSize);
+  const { addToCart } = useCart();
+  const { wishItems, toggleWish } = useCart();
+  const isLiked = wishItems.some((item) => item.id === product.id);
+  const [selectedColor, setSelctedColor] = useState<string>(
+    product?.defaultColorName,
+  );
+  const [selectedColorCode, setSelctedColorCode] = useState<string>(
+    product?.defaultColorCode,
+  );
 
   const handleOrder = () => {
-    console.log("Added", product);
     const newCardData = {
       ...product,
       selectedColor: selectedColor,
       selectedSize: selectedSize,
     };
-    console.log("ADDED", newCardData);
     addToCart(newCardData);
 
-    console.log("Cart Items", cartItems);
-    alert("Added");
+    toast.success("Added to cart!", {
+      className: "custom-toast",
+    });
+  };
+
+  const handleToggle = (product: any, isLiked: boolean) => {
+    toggleWish(product);
+    if (!isLiked) {
+      toast.success("Added to Likes!", {
+        className: "likes-toast",
+        icon: <ToastIcon src="/assets/icons/redColoredIcon.svg"></ToastIcon>,
+      });
+    } else {
+      toast.success("Removed from Likes!", {
+        className: "likes-toast",
+        icon: <ToastIcon src="/assets/icons/heart.svg"></ToastIcon>,
+      });
+    }
   };
   return (
     <Section>
+      {" "}
+      <ToastContainer />
       <Container>
         <LeftContainer>
           <CardImage src={product?.cardImage}></CardImage>
@@ -88,10 +115,18 @@ const ConfirmOrder = () => {
                     backgroundColor: item.colorCode,
                     height: "40px",
                     width: "40px",
+                    border:
+                      item.colorCode === selectedColorCode
+                        ? "2px solid black"
+                        : "2px solid #ffff",
+                    transition: "all 0.2s ease",
                     borderRadius: "10px",
                     cursor: "pointer",
                   }}
-                  onClick={() => setSelctedColor(item.colorName)}
+                  onClick={() => {
+                    (setSelctedColor(item.colorName),
+                      setSelctedColorCode(item.colorCode));
+                  }}
                 ></Box>
               ))}
             </ColorDetails>
@@ -114,8 +149,13 @@ const ConfirmOrder = () => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    border: "1px solid #9e9e9e",
                     cursor: "pointer",
+                    color: s === selectedSize ? "black" : "#9e9e9e",
+                    border:
+                      s === selectedSize
+                        ? "1px solid black"
+                        : "1px solid #9e9e9e",
+                    transition: "all 0.2s ease",
                   }}
                   onClick={() => setSelctedSize(s)}
                 >
@@ -127,7 +167,16 @@ const ConfirmOrder = () => {
           <ButtonContainer>
             <AddCartButton onClick={handleOrder}>Add to Cart</AddCartButton>
             <LikeButton>
-              <HeartIcon src="/assets/icons/redColoredIcon.svg"></HeartIcon>
+              <HeartIcon
+                src={
+                  isLiked
+                    ? "/assets/icons/redColoredIcon.svg"
+                    : "/assets/icons/heart.svg"
+                }
+                onClick={() => {
+                  handleToggle(product, isLiked);
+                }}
+              ></HeartIcon>
             </LikeButton>
           </ButtonContainer>
           <BackButton onClick={() => navigate(-1)}>⬅ Back</BackButton>

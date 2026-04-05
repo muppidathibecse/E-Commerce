@@ -2,31 +2,33 @@ import { useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 
-import Header from "./Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
 import Home from "../pages/Home/Home";
 import ConfirmOrder from "../pages/ConfirmOrder/ConfirmOrder";
 import OrderSummary from "../pages/OrderSummary/OrderSummary";
+import Likes from "../pages/Likes/Likes";
 
 const LayoutWrapper = styled("div")({
   display: "flex",
+  height: "100vh",
+  overflow: "hidden",
 });
 
 const SidebarWrapper = styled("div")({
+  width: "300px",
   backgroundColor: "#06202B",
-  width: "260px",
+  flexShrink: 0,
   height: "100vh",
-  position: "fixed",
+  overflow: "hidden",
 });
 
 const Main = styled("div")({
+  flex: 1,
   backgroundColor: "#F5EEDD",
-  paddingBottom: "20px",
-  minHeight: "100vh",
-  marginLeft: "260px",
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
+  padding: "16px",
+  boxSizing: "border-box",
+  overflowY: "auto",
+  height: "100vh",
 });
 
 const Content = styled("div")({});
@@ -38,6 +40,8 @@ const Layout = () => {
   const handleNavItem = (item: any) => {
     if (item.slug === "order-summary") {
       navigate("/order-summary");
+    } else if (item.slug === "likes") {
+      navigate("/likes");
     } else {
       setSelectedItem(item.name);
       navigate(`/product/${item.slug}`);
@@ -51,16 +55,16 @@ const Layout = () => {
       </SidebarWrapper>
 
       <Main>
-        <Header />
         <Content>
           <Routes>
-            <Route path="/" element={<OrderSummary/>} />
+            <Route path="/" element={<OrderSummary />} />
             <Route
               path="/product/:productSlug"
               element={<Home product={selectedItem} />}
             />
             <Route path="/product/:id/:slug" element={<ConfirmOrder />} />
             <Route path="/order-summary" element={<OrderSummary />} />
+            <Route path="/likes" element={<Likes />} />
           </Routes>
         </Content>
       </Main>

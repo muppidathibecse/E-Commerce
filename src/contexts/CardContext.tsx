@@ -5,8 +5,12 @@ type CartItem = any;
 
 type CartContextType = {
   cartItems: CartItem[];
+  wishItems: CartItem[];
   addToCart: (item: CartItem) => void;
+  addWish: (item: CartItem) => void;
+  toggleWish: (item: CartItem) => void;
   removeFromCart: (orderId: number) => void;
+  removeFromWish: (orderId: number) => void;
   updateQuantity: (orderId: number, quantity: number) => void;
   clearCart: () => void;
 };
@@ -15,7 +19,14 @@ const CartContext = createContext<CartContextType | null>(null);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [wishItems, setWishItems] = useState<CartItem[]>([]);
+  const [wishCounter, setWishCounter] = useState(2000);
   const [orderCounter, setOrderCounter] = useState(1000);
+
+  const addWish = (item: CartItem) => {
+    setWishItems((prev) => [...prev, { wishId: wishCounter, ...item }]);
+    setWishCounter((prev) => prev + 1);
+  };
 
   const addToCart = (item: CartItem) => {
     setCartItems((prev) => [
@@ -41,15 +52,37 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setCartItems((prev) => prev.filter((item) => item.orderId !== orderId));
   };
 
+  const removeFromWish = (wishId: number) => {
+    setWishItems((prev) => prev.filter((item) => item.wishId !== wishId));
+  };
+
   const clearCart = () => {
     setCartItems([]);
+  };
+
+  const toggleWish = (item: CartItem) => {
+    setWishItems((prev) => {
+      const exists = prev.find((i) => i.id === item.id);
+
+      if (exists) {
+        return prev.filter((i) => i.id !== item.id);
+      } else {
+        return [...prev, { wishId: wishCounter, ...item }];
+      }
+    });
+
+    setWishCounter((prev) => prev + 1);
   };
   return (
     <CartContext.Provider
       value={{
         cartItems,
+        wishItems,
         addToCart,
+        toggleWish,
+        addWish,
         removeFromCart,
+        removeFromWish,
         updateQuantity,
         clearCart,
       }}
@@ -63,7 +96,7 @@ export const useCart = () => {
   const context = useContext(CartContext);
 
   if (!context) {
-    throw new Error("useCart must be used inside CartProvider");
+    throw new Error("Error");
   }
 
   return context;

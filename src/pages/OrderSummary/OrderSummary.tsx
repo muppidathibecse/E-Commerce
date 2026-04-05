@@ -3,7 +3,13 @@ import { useCart } from "../../contexts/CardContext";
 import {
   Amount,
   AmountPayable,
+  ButtonGroups,
+  CancelButton,
   CancelOrderButton,
+  ConfirmButton,
+  DialogBox,
+  DialogContainer,
+  DialogTitle,
   FreeText,
   Heading,
   LikeIcon,
@@ -29,9 +35,11 @@ import {
   Section,
   Text,
   Title,
+  ToastIcon,
   TrashIcon,
 } from "./orderSummaryStyles";
 import EmptyUI from "../EmptyUI/EmptyUI";
+import { toast, ToastContainer } from "react-toastify";
 
 type PaymentTypes = {
   bagTotal: number;
@@ -50,10 +58,12 @@ const OrderSummary = () => {
     deliveryFee: 0,
     totalAmount: 0,
   });
+  const [dialog, setDialog] = useState({
+    open: false,
+    id: null as number | null,
+  });
 
   const Calculate = () => {
-    console.log("FromC", cartItems);
-
     setAmountDetails((prev) => {
       const couponSavings = prev.couponSavings;
 
@@ -82,30 +92,46 @@ const OrderSummary = () => {
   };
 
   const handleRemove = (id: number) => {
-    removeFromCart(id);
-    Calculate();
-    console.log("cardtItems", cartItems);
+    setDialog({ open: true, id });
+  };
+
+  const handleConfirm = () => {
+    if (dialog.id !== null) {
+      removeFromCart(dialog.id);
+      toast.success("Removed From Card!", {
+        className: "likes-toast",
+        icon: <ToastIcon src="/assets/icons/cancelIcon.svg"></ToastIcon>,
+      });
+      Calculate();
+    }
+
+    setDialog({ open: false, id: null });
+  };
+
+  const handleCancel = () => {
+    setDialog({ open: false, id: null });
   };
 
   const Increment = (id: number, count: number) => {
     updateQuantity(id, count);
     Calculate();
-    console.log("cardtItems", cartItems);
   };
 
   const Decrement = (id: number, count: number) => {
     updateQuantity(id, count);
     Calculate();
-    console.log("cardtItems", cartItems);
   };
 
   const handleApplyCoupon = () => {
-    const discount = 2;
+    const discount = 72;
     setAmountDetails((prev) => ({
       ...prev,
       couponSavings: discount,
       totalAmount: prev.totalAmount - discount,
     }));
+    toast.success("Coupon Applied!", {
+      className: "likes-toast",
+    });
   };
 
   useEffect(() => {
@@ -114,6 +140,7 @@ const OrderSummary = () => {
 
   return (
     <>
+      <ToastContainer />
       {cartItems.length == 0 ? (
         <>
           <EmptyUI />
@@ -173,14 +200,14 @@ const OrderSummary = () => {
                   }
                 }}
                 style={{
-                  color: amountDetails.couponSavings === 0 ? "blue" : "black",
+                  color: amountDetails.couponSavings === 0 ? "blue" : "green",
                   cursor:
                     amountDetails.couponSavings === 0 ? "pointer" : "default",
                 }}
               >
                 {amountDetails.couponSavings === 0
                   ? "Apply Coupon"
-                  : `-₹${amountDetails.couponSavings}`}
+                  : `${amountDetails.couponSavings}%`}
               </Price>
               <PriceName>Delivery Fee</PriceName>
               <Price>
@@ -214,6 +241,18 @@ const OrderSummary = () => {
             </CancelOrderButton>
             <PlaceOrderButton>Place Order</PlaceOrderButton>
           </PlaceOrderButtons>
+          {dialog.open && (
+            <DialogContainer>
+              <DialogBox>
+                <DialogTitle>Are you sure you want to remove?</DialogTitle>
+
+                <ButtonGroups>
+                  <CancelButton onClick={handleCancel}>Cancel</CancelButton>
+                  <ConfirmButton onClick={handleConfirm}>OK</ConfirmButton>
+                </ButtonGroups>
+              </DialogBox>
+            </DialogContainer>
+          )}
         </Section>
       )}
     </>

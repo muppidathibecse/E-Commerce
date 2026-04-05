@@ -19,7 +19,7 @@ export const OrderLayout = styled("div")({
 });
 export const OrderContainer = styled("div")({
   display: "flex",
-  gap:'40px',
+  gap: "40px",
   backgroundColor: "white",
   boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
   borderRadius: "10px",
@@ -214,4 +214,66 @@ export const CancelOrderButton = styled("button")({
   fontSize: "18px",
   padding: "15px 25px",
   cursor: "pointer",
+});
+
+export const DialogContainer = styled("div")({
+  position: "fixed",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100%",
+  background: "rgba(49, 49, 49, 0.5)",
+  display: "flex",
+  alignItems: "start",
+  justifyContent: "end",
+});
+
+export const DialogBox = styled("div")({
+  width: "300px",
+  background: "#fff",
+  borderRadius: "10px",
+  padding: "20px",
+  margin: "20px",
+});
+
+export const DialogTitle = styled("p")({
+  margin: 0,
+  padding: 0,
+  fontSize: "16px",
+  textAlign:'end'
+});
+
+export const ConfirmButton = styled("button")({
+  border: "1px solid #06202b",
+  backgroundColor: "#06202b",
+  color: "white",
+  borderRadius: "10px",
+  fontWeight: 200,
+  fontSize: "15px",
+  padding: "8px 20px",
+  cursor: "pointer",
+});
+
+export const CancelButton = styled("button")({
+
+  border: "1px solid #06202b",
+  backgroundColor: "white",
+  color: "#06202b",
+  borderRadius: "10px",
+  fontWeight: 200,
+  fontSize: "15px",
+  padding: "8px 20px",
+  cursor: "pointer",
+});
+
+export const ButtonGroups = styled("div")({
+  marginTop:'10px',
+  display: "flex",
+  gap:'10px',
+  justifyContent:'end'
+});
+
+export const ToastIcon = styled("img")({
+  height: "25px",
+  width: "25px",
 });
