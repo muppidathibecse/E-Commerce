@@ -51,6 +51,8 @@ type PaymentTypes = {
 
 const OrderSummary = () => {
   const { cartItems, removeFromCart, updateQuantity, clearCart } = useCart();
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [actionType, setActionType] = useState("");
   const [amountDetails, setAmountDetails] = useState<PaymentTypes>({
     bagTotal: 0,
     bagSavings: 0,
@@ -134,6 +136,33 @@ const OrderSummary = () => {
     });
   };
 
+  const handleCancelOrderClick1 = () => {
+    setActionType("cancel");
+    setDialogOpen(true);
+  };
+
+  const handlePlaceOrderClick1 = () => {
+    setActionType("place");
+    setDialogOpen(true);
+  };
+
+  const handleConfirm1 = () => {
+    if (actionType === "cancel") {
+      clearCart();
+    } else if (actionType === "place") {
+      toast.success("Order Placed Successfully!", {
+        className: "likes-toast",
+      });
+      clearCart();
+    }
+
+    setDialogOpen(false);
+  };
+
+  const handleCancel1 = () => {
+    setDialogOpen(false);
+  };
+
   useEffect(() => {
     Calculate();
   }, [cartItems]);
@@ -176,9 +205,7 @@ const OrderSummary = () => {
                         src="/assets/icons/plusBoldIcon.svg"
                       />
                     </OrderQuantity>
-                    <SaveButton>
-                      <LikeIcon src="/assets/icons/redColoredIcon.svg" /> Save
-                    </SaveButton>
+                    
                   </OrderButtonGroups>
                   <OrderRemoveButton onClick={() => handleRemove(item.orderId)}>
                     <TrashIcon src="/assets/icons/trashIcon.svg" /> Remove
@@ -236,10 +263,13 @@ const OrderSummary = () => {
           </OrderLayout>
 
           <PlaceOrderButtons>
-            <CancelOrderButton onClick={clearCart}>
-              Cancel Order
+            <CancelOrderButton onClick={handleCancelOrderClick1}>
+              Cancel Cart
             </CancelOrderButton>
-            <PlaceOrderButton>Place Order</PlaceOrderButton>
+
+            <PlaceOrderButton onClick={handlePlaceOrderClick1}>
+              Place Order
+            </PlaceOrderButton>
           </PlaceOrderButtons>
           {dialog.open && (
             <DialogContainer>
@@ -249,6 +279,23 @@ const OrderSummary = () => {
                 <ButtonGroups>
                   <CancelButton onClick={handleCancel}>Cancel</CancelButton>
                   <ConfirmButton onClick={handleConfirm}>OK</ConfirmButton>
+                </ButtonGroups>
+              </DialogBox>
+            </DialogContainer>
+          )}
+          {dialogOpen && (
+            <DialogContainer>
+              <DialogBox>
+                <DialogTitle>
+                  {actionType === "cancel"
+                    ? "Are you sure you want to cancel the order?"
+                    : "Are you sure you want to place the order?"}
+                </DialogTitle>
+
+                <ButtonGroups>
+                  <CancelButton onClick={handleCancel1}>Cancel</CancelButton>
+
+                  <ConfirmButton onClick={handleConfirm1}>OK</ConfirmButton>
                 </ButtonGroups>
               </DialogBox>
             </DialogContainer>

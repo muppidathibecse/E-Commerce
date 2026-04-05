@@ -45,3 +45,22 @@ body {
 .likes-icon {
   font-size: 18px;
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #527685;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #06202b;
+  border-radius: 35px;
+}
+
+/* Hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

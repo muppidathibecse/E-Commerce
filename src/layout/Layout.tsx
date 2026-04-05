@@ -14,28 +14,33 @@ const LayoutWrapper = styled("div")({
   overflow: "hidden",
 });
 
-const SidebarWrapper = styled("div")({
-  width: "300px",
-  backgroundColor: "#06202B",
-  flexShrink: 0,
-  height: "100vh",
-  overflow: "hidden",
-});
+const SidebarWrapper = styled("div")<{ collapsed?: boolean }>(
+  ({ collapsed }) => ({
+    width: collapsed ? "80px" : "300px",
+    backgroundColor: "#06202B",
+    flexShrink: 0,
+    height: "100vh",
+    transition: "width 0.3s ease",
+    overflow: "hidden",
+  })
+);
 
 const Main = styled("div")({
   flex: 1,
   backgroundColor: "#F5EEDD",
   padding: "16px",
-  boxSizing: "border-box",
   overflowY: "auto",
   height: "100vh",
 });
 
-const Content = styled("div")({});
-
 const Layout = () => {
   const navigate = useNavigate();
   const [selectedItem, setSelectedItem] = useState<string>("Mobiles");
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsCollapsed((prev) => !prev);
+  };
 
   const handleNavItem = (item: any) => {
     if (item.slug === "order-summary") {
@@ -50,23 +55,25 @@ const Layout = () => {
 
   return (
     <LayoutWrapper>
-      <SidebarWrapper>
-        <Sidebar onNavItemClick={handleNavItem} />
+      <SidebarWrapper collapsed={isCollapsed}>
+        <Sidebar
+          onNavItemClick={handleNavItem}
+          isCollapsed={isCollapsed}
+          toggleSidebar={toggleSidebar}
+        />
       </SidebarWrapper>
 
       <Main>
-        <Content>
-          <Routes>
-            <Route path="/" element={<OrderSummary />} />
-            <Route
-              path="/product/:productSlug"
-              element={<Home product={selectedItem} />}
-            />
-            <Route path="/product/:id/:slug" element={<ConfirmOrder />} />
-            <Route path="/order-summary" element={<OrderSummary />} />
-            <Route path="/likes" element={<Likes />} />
-          </Routes>
-        </Content>
+        <Routes>
+          <Route path="/" element={<OrderSummary />} />
+          <Route
+            path="/product/:productSlug"
+            element={<Home product={selectedItem} />}
+          />
+          <Route path="/product/:id/:slug" element={<ConfirmOrder />} />
+          <Route path="/order-summary" element={<OrderSummary />} />
+          <Route path="/likes" element={<Likes />} />
+        </Routes>
       </Main>
     </LayoutWrapper>
   );

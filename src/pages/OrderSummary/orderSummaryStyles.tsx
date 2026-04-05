@@ -229,7 +229,7 @@ export const DialogContainer = styled("div")({
 });
 
 export const DialogBox = styled("div")({
-  width: "300px",
+  width: "360px",
   background: "#fff",
   borderRadius: "10px",
   padding: "20px",
