@@ -7,6 +7,7 @@ import Home from "../pages/Home/Home";
 import ConfirmOrder from "../pages/ConfirmOrder/ConfirmOrder";
 import OrderSummary from "../pages/OrderSummary/OrderSummary";
 import Likes from "../pages/Likes/Likes";
+import JsonLearn from "../pages/JsonLearn/JsonLearn";
 
 const LayoutWrapper = styled("div")({
   display: "flex",
@@ -18,7 +19,6 @@ const SidebarWrapper = styled("div")<{ collapsed?: boolean }>(
   ({ collapsed }) => ({
     width: collapsed ? "80px" : "300px",
     backgroundColor: "#06202B",
-    flexShrink: 0,
     height: "100vh",
     transition: "width 0.3s ease",
     overflow: "hidden",
@@ -30,7 +30,7 @@ const Main = styled("div")({
   backgroundColor: "#F5EEDD",
   padding: "16px",
   overflowY: "auto",
-  height: "100vh",
+  
 });
 
 const Layout = () => {
@@ -73,6 +73,7 @@ const Layout = () => {
           <Route path="/product/:id/:slug" element={<ConfirmOrder />} />
           <Route path="/order-summary" element={<OrderSummary />} />
           <Route path="/likes" element={<Likes />} />
+           <Route path="/json-learning" element={<JsonLearn />} />
         </Routes>
       </Main>
     </LayoutWrapper>

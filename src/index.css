@@ -59,8 +59,3 @@ body {
   background: #06202b;
   border-radius: 35px;
 }
-
-/* Hover effect */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}

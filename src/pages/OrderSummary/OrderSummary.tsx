@@ -184,7 +184,7 @@ const OrderSummary = () => {
                 <RightContainer>
                   <OrderName>{item.cardName}</OrderName>
                   <OrderDetails>
-                    Color: {item.selectedColor}, Size: {item.selectedSize} GB
+                    Color: {item.selectedColor}, Size: {item.selectedSize} 
                   </OrderDetails>
                   <NewPrice>
                     ₹{item.newRs} <OldPrice>₹{item.oldRs}</OldPrice>

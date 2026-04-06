@@ -68,7 +68,6 @@ export const CardAmount = styled("div")({
 
 export const Heading = styled("h1")({
   margin: "10px 0px",
-  textAlign: "center",
   fontWeight: "bold",
   color: "#06202B",
 });

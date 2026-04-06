@@ -1,0 +1,15 @@
+{
+  "posts": [
+    {
+      "title": "New Postdsd",
+      "description": "This is a new postsdsds",
+      "id": "hQjkJCbtqv8"
+    },
+    {
+      "title": "New Post",
+      "description": "This is a new post",
+      "id": "zyUYrW6_uqM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

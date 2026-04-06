@@ -186,7 +186,7 @@ export const OldDeliveryPrice = styled("span")({
 });
 
 export const PlaceOrderButtons = styled("div")({
-  marginTop: "25px",
+marginTop:'20px',
   display: "flex",
   gap: "10px",
   justifyContent: "start",

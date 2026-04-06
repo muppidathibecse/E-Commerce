@@ -17,6 +17,7 @@ import {
 } from "./homeStyle";
 import type { ProductItem } from "../../types/productCardTypes";
 import { API_RESPONSE } from "../../data/staticData";
+import { Box } from "@mui/material";
 
 const Home = ({ product }: { product: string }) => {
   const navigate = useNavigate();
@@ -38,31 +39,48 @@ const Home = ({ product }: { product: string }) => {
   }, [product]);
 
   return (
-    <Section>
-      <Heading>{product}</Heading>
-      <Container>
-        {apiResponse.map((item: any) => (
-          <Card
-            key={item.id}
-            elevation={3}
-            onClick={() => handleCardClick(item)}
-          >
-            <CardLogo src={item.cardImage}></CardLogo>
-            <CardTitle>{item.cardName}</CardTitle>
-            <CardReviews>
-              {[...Array(item.noOfStar)].map((_, index) => (
-                <StarIcon key={index} sx={{ fontSize: 20, color: "#06202B" }} />
-              ))}
-              <ReviewLabel>{item.cardReview}</ReviewLabel>
-            </CardReviews>
-            <CardAmount>
-              <NewPrice>₹{item.newRs}</NewPrice>
-              <OldPrice>₹{item.oldRs}</OldPrice>
-            </CardAmount>
-          </Card>
-        ))}
-      </Container>
-    </Section>
+    <>
+      <Box sx={{ backgroundColor: "red" }}>
+        <Heading
+          style={{
+            position: "fixed",
+            top: "-10px",
+            width:'75%',
+            backgroundColor: "#F5EEDD",
+            zIndex: 1000,
+          }}
+        >
+          {product}
+        </Heading>
+      </Box>
+      <Section style={{marginTop:'60px'}}>
+        <Container>
+          {apiResponse.map((item: any) => (
+            <Card
+              key={item.id}
+              elevation={3}
+              onClick={() => handleCardClick(item)}
+            >
+              <CardLogo src={item.cardImage}></CardLogo>
+              <CardTitle>{item.cardName}</CardTitle>
+              <CardReviews>
+                {[...Array(item.noOfStar)].map((_, index) => (
+                  <StarIcon
+                    key={index}
+                    sx={{ fontSize: 20, color: "#06202B" }}
+                  />
+                ))}
+                <ReviewLabel>{item.cardReview}</ReviewLabel>
+              </CardReviews>
+              <CardAmount>
+                <NewPrice>₹{item.newRs}</NewPrice>
+                <OldPrice>₹{item.oldRs}</OldPrice>
+              </CardAmount>
+            </Card>
+          ))}
+        </Container>
+      </Section>
+    </>
   );
 };
 

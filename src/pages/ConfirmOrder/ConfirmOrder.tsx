@@ -135,7 +135,7 @@ const ConfirmOrder = () => {
             <SizeName>
               Size{" "}
               <SizeSpan>
-                <MustFill>*</MustFill> {selectedSize} GB
+                <MustFill>*</MustFill> {selectedSize} 
               </SizeSpan>
             </SizeName>
             <ColorDetails>
