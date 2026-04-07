@@ -27,7 +27,7 @@ import {
 } from "./likesStyles";
 import { useCart } from "../../contexts/CardContext";
 import { useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { ToastIcon } from "../ConfirmOrder/confirmOrderStyles";
 
 const Likes = () => {
@@ -71,8 +71,6 @@ const Likes = () => {
   };
   return (
     <>
-      {" "}
-      <ToastContainer />
       {wishItems.length != 0 ? (
         <Section>
           <Heading>Likes</Heading>
@@ -108,7 +106,7 @@ const Likes = () => {
         <NoLikesContainer>
           <Title>Your Card is Empty</Title>
           <Description>Go to Home Page and Select your Card</Description>
-          <StartButton onClick={() => navigate("/product/mobiles")}>
+          <StartButton onClick={() => navigate("/products/Mobiles")}>
             Let's Go
           </StartButton>
         </NoLikesContainer>

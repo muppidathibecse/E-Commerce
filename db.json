@@ -1,14 +1,262 @@
 {
   "posts": [
     {
-      "title": "New Postdsd",
-      "description": "This is a new postsdsds",
-      "id": "hQjkJCbtqv8"
+      "title": "New Post",
+      "description": "This is a new post",
+      "id": "zyUYrW6_uqM"
     },
     {
       "title": "New Post",
       "description": "This is a new post",
-      "id": "zyUYrW6_uqM"
+      "id": "mv365-lU7ME"
+    },
+    {
+      "title": "New Post",
+      "description": "This is a new post",
+      "id": "Og5XopLEu3E"
+    },
+    {
+      "title": "New Post",
+      "description": "This is a new post",
+      "id": "5gCrSxNOMBQ"
+    }
+  ],
+  "get_all_products": [
+    {
+      "id": "1",
+      "productName": "Mobiles",
+      "data": [
+        {
+          "id": 2,
+          "cardName": "Samsung Galaxy S23 Ultra Black",
+          "cardImage": "/assets/productIcons/mobile-1.jpg",
+          "cardReview": "2.3M+ reviews",
+          "noOfStar": 4,
+          "newRs": 5,
+          "oldRs": 10,
+          "defaultColorCode": "#00000",
+          "defaultColorName": "Black",
+          "defaultSize": 12,
+          "isLiked": false,
+          "colors": [
+            {
+              "colorCode": "#501c43",
+              "colorName": "Pink"
+            },
+            {
+              "colorCode": "#000000",
+              "colorName": "Black"
+            },
+            {
+              "colorCode": "#a3a3a3",
+              "colorName": "Gray"
+            }
+          ],
+          "sizes": [
+            12,
+            25,
+            52
+          ]
+        },
+        {
+          "id": 3,
+          "cardName": "OnePlus 11R 5G 128GB Sonic Black",
+          "cardImage": "/assets/productIcons/mobile-2.jpg",
+          "cardReview": "1.1M+ reviews",
+          "noOfStar": 2,
+          "newRs": 45,
+          "oldRs": 50,
+          "defaultColorCode": "#0003bd",
+          "defaultColorName": "Blue",
+          "defaultSize": 1,
+          "isLiked": false,
+          "colors": [
+            {
+              "colorCode": "#0003bd",
+              "colorName": "Blue"
+            },
+            {
+              "colorCode": "#ff1b1b",
+              "colorName": "Black"
+            },
+            {
+              "colorCode": "#93e6ff",
+              "colorName": "Gray"
+            }
+          ],
+          "sizes": [
+            1,
+            52,
+            55
+          ]
+        },
+        {
+          "id": 4,
+          "cardName": "Xiaomi Redmi Note 12 Pro 256GB Blue",
+          "cardImage": "/assets/productIcons/mobile-3.jpg",
+          "cardReview": "3.5M+ reviews",
+          "noOfStar": 5,
+          "newRs": 10,
+          "oldRs": 20,
+          "defaultColorCode": "#6f96a1",
+          "defaultColorName": "Light Gray",
+          "defaultSize": 128,
+          "isLiked": false,
+          "colors": [
+            {
+              "colorCode": "#6f96a1",
+              "colorName": "Light Gray"
+            },
+            {
+              "colorCode": "#000000",
+              "colorName": "Black"
+            },
+            {
+              "colorCode": "#145a6b",
+              "colorName": "Gray"
+            }
+          ],
+          "sizes": [
+            128,
+            252,
+            552
+          ]
+        },
+        {
+          "id": 1775563074242,
+          "cardName": "Vivo 22 5G",
+          "cardImage": "/assets/productIcons/mobile-3.jpg",
+          "cardReview": "2.4K+ Reviews",
+          "noOfStar": 2,
+          "newRs": 123,
+          "oldRs": 12345,
+          "defaultColorCode": "#0003bd",
+          "defaultColorName": "Blue",
+          "defaultSize": 1,
+          "isLiked": false,
+          "colors": [
+            {
+              "colorCode": "#0003bd",
+              "colorName": "Blue"
+            },
+            {
+              "colorCode": "#ff1b1b",
+              "colorName": "Black"
+            },
+            {
+              "colorCode": "#93e6ff",
+              "colorName": "Gray"
+            }
+          ],
+          "sizes": [
+            1,
+            52,
+            55
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "productName": "Tv",
+      "data": [
+        {
+          "id": 6,
+          "cardName": "Ego Smart WebOS 65 Inch LED TV",
+          "cardImage": "/assets/productIcons/tv-1.jpg",
+          "cardReview": "2.3M+ reviews",
+          "noOfStar": 4,
+          "newRs": 89999,
+          "oldRs": 124999,
+          "defaultColorCode": "#00000",
+          "defaultColorName": "Black",
+          "defaultSize": 128,
+          "isLiked": true,
+          "colors": [
+            {
+              "colorCode": "#ff8be2",
+              "colorName": "Pink"
+            },
+            {
+              "colorCode": "#000000",
+              "colorName": "Black"
+            },
+            {
+              "colorCode": "#a3a3a3",
+              "colorName": "Gray"
+            }
+          ],
+          "sizes": [
+            128,
+            252,
+            552
+          ]
+        },
+        {
+          "id": 7,
+          "cardName": "Samsung 80 cm (32) HD H4500 Smart TV",
+          "cardImage": "/assets/productIcons/tv-2.jpg",
+          "cardReview": "1.1M+ reviews",
+          "noOfStar": 2,
+          "newRs": 39999,
+          "oldRs": 44999,
+          "defaultColorCode": "#00000",
+          "defaultColorName": "Black",
+          "defaultSize": 128,
+          "isLiked": false,
+          "colors": [
+            {
+              "colorCode": "#ff8be2",
+              "colorName": "Pink"
+            },
+            {
+              "colorCode": "#000000",
+              "colorName": "Black"
+            },
+            {
+              "colorCode": "#a3a3a3",
+              "colorName": "Gray"
+            }
+          ],
+          "sizes": [
+            128,
+            252,
+            552
+          ]
+        },
+        {
+          "id": 8,
+          "cardName": "BPL 81.28 cm (32 inch) HD Smart LED TV",
+          "cardImage": "/assets/productIcons/tv-3.jpg",
+          "cardReview": "3.5M+ reviews",
+          "noOfStar": 5,
+          "newRs": 21999,
+          "oldRs": 27999,
+          "defaultColorCode": "#00000",
+          "defaultColorName": "Black",
+          "defaultSize": 12,
+          "isLiked": false,
+          "colors": [
+            {
+              "colorCode": "#ff8be2",
+              "colorName": "Pink"
+            },
+            {
+              "colorCode": "#000000",
+              "colorName": "Black"
+            },
+            {
+              "colorCode": "#a3a3a3",
+              "colorName": "Gray"
+            }
+          ],
+          "sizes": [
+            12,
+            252,
+            552
+          ]
+        }
+      ]
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

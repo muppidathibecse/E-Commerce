@@ -8,7 +8,7 @@ const EmptyUI = () => {
       <Section>
         <Title>Your Cart is Empty</Title>
         <Description>Go to Home Page and Select your Card</Description>
-        <StartButton onClick={() => navigate("/product/mobiles")}>
+        <StartButton onClick={() => navigate("/products/Mobiles")}>
           Let's Go
         </StartButton>
       </Section>

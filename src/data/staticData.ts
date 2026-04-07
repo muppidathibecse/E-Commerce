@@ -677,18 +677,18 @@ export const TOP_NAV_ITEMS = [
     slug: "tv",
     icon: "/assets/icons/tvBoldIcon.svg",
   },
-  {
-    id: 3,
-    name: "Dresses",
-    slug: "dresses",
-    icon: "/assets/icons/tShirtBoldIcon.svg",
-  },
-   {
-    id: 4,
-    name: "Watches",
-    slug: "watches",
-    icon: "/assets/icons/watchBoldIcon.svg",
-  },
+  // {
+  //   id: 3,
+  //   name: "Dresses",
+  //   slug: "dresses",
+  //   icon: "/assets/icons/tShirtBoldIcon.svg",
+  // },
+  //  {
+  //   id: 4,
+  //   name: "Watches",
+  //   slug: "watches",
+  //   icon: "/assets/icons/watchBoldIcon.svg",
+  // },
 ];
 
 export const BOTTOM_NAV_ITEMS = [

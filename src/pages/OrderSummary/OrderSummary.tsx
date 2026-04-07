@@ -39,7 +39,7 @@ import {
   TrashIcon,
 } from "./orderSummaryStyles";
 import EmptyUI from "../EmptyUI/EmptyUI";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 type PaymentTypes = {
   bagTotal: number;
@@ -169,7 +169,6 @@ const OrderSummary = () => {
 
   return (
     <>
-      <ToastContainer />
       {cartItems.length == 0 ? (
         <>
           <EmptyUI />

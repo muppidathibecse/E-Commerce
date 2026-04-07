@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import StarIcon from "@mui/icons-material/Star";
 
 import {
@@ -16,27 +16,32 @@ import {
   Section,
 } from "./homeStyle";
 import type { ProductItem } from "../../types/productCardTypes";
-import { API_RESPONSE } from "../../data/staticData";
 import { Box } from "@mui/material";
+import {  getProductDataByName } from "../../services/produtServices";
 
-const Home = ({ product }: { product: string }) => {
+const Home = () => {
+  const { productName } = useParams();
+  console.log('PRO NAM', productName);
+  
   const navigate = useNavigate();
   const [apiResponse, setApiResponse] = useState<ProductItem[]>([]);
   const handleCardClick = (item: any) => {
     const id = item.id;
     const slug = item.cardName.toLowerCase().replace(/\s+/g, "-");
 
-    navigate(`/product/${id}/${slug}`, {
+    navigate(`/products/${id}/${slug}`, {
       state: item,
     });
   };
 
   useEffect(() => {
-    const selectedProduct = API_RESPONSE.find(
-      (item) => item.productName === product,
-    );
-    setApiResponse(selectedProduct?.data ?? []);
-  }, [product]);
+    const fetchData = async () => {
+      const data = await getProductDataByName(productName);
+      setApiResponse(data);
+    };
+
+    fetchData();
+  }, [productName]);
 
   return (
     <>
@@ -45,15 +50,15 @@ const Home = ({ product }: { product: string }) => {
           style={{
             position: "fixed",
             top: "-10px",
-            width:'75%',
+            width: "75%",
             backgroundColor: "#F5EEDD",
             zIndex: 1000,
           }}
         >
-          {product}
+          {productName}
         </Heading>
       </Box>
-      <Section style={{marginTop:'60px'}}>
+      <Section style={{ marginTop: "60px" }}>
         <Container>
           {apiResponse.map((item: any) => (
             <Card

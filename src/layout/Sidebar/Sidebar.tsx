@@ -1,4 +1,11 @@
 import { Box } from "@mui/material";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button,
+} from "@mui/material";
 
 import {
   Circle,
@@ -10,6 +17,9 @@ import {
 } from "./sidebarStyles";
 import { BOTTOM_NAV_ITEMS, TOP_NAV_ITEMS } from "../../data/staticData";
 import { useCart } from "../../contexts/CardContext";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 type ChildProps = {
   onNavItemClick: (item: any) => void;
@@ -22,10 +32,20 @@ const Sidebar = ({
   isCollapsed,
   toggleSidebar,
 }: ChildProps) => {
+  const navigate = useNavigate();
   const { cartItems, wishItems } = useCart();
+  const userName = localStorage.getItem("userName");
+  const [openLogout, setOpenLogout] = useState(false);
 
   const handleClick = (item: any) => {
     onNavItemClick(item);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("userName");
+    toast.success("Logout Successfully!", {
+      className: "custom-toast",
+    });
   };
 
   return (
@@ -71,7 +91,7 @@ const Sidebar = ({
         ))}
       </Box>
 
-      <Box sx={{ width: "100%" }}>
+      <Box sx={{ width: "100%", marginTop: "auto" }}>
         {BOTTOM_NAV_ITEMS.map((item) => (
           <NavContainer
             key={item.id}
@@ -90,8 +110,70 @@ const Sidebar = ({
               item.name === "Likes" &&
               wishItems.length !== 0 && <Circle>{wishItems.length}</Circle>}
           </NavContainer>
-        ))}
+        ))}{" "}
+        <NavContainer
+          collapsed={isCollapsed}
+          onClick={() => {
+            if (!userName) {
+              navigate("/login");
+            } else {
+              setOpenLogout(true);
+            }
+          }}
+        >
+          <NavIcon src="/assets/icons/profile.svg" />
+          {!isCollapsed && <NavItem>{userName || "Login"}</NavItem>}
+        </NavContainer>
       </Box>
+      <Dialog
+        open={openLogout}
+        onClose={() => setOpenLogout(false)}
+        PaperProps={{
+          sx: {
+            position: "absolute",
+            width: "280px",
+            left: 10,
+            bottom: 20,
+            m: 0,
+          },
+        }}
+      >
+        <DialogTitle>Logout</DialogTitle>
+
+        <DialogContent>Are you sure?</DialogContent>
+
+        <DialogActions>
+          <Button
+            sx={{
+              backgroundColor: "#06202b",
+              borderRadius: "10px",
+              padding: "5px 18px",
+              color: "white",
+              fontWeight: 400,
+            }}
+            onClick={() => setOpenLogout(false)}
+          >
+            Cancel
+          </Button>
+
+          <Button
+            sx={{
+              backgroundColor: "#06202b",
+              borderRadius: "10px",
+              padding: "5px 18px",
+              color: "white",
+              fontWeight: 400,
+            }}
+            onClick={() => {
+              handleLogout();
+              setOpenLogout(false);
+              navigate('/login')
+            }}
+          >
+            Logout
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Section>
   );
 };

@@ -33,7 +33,6 @@ import {
 import { useState } from "react";
 import { useCart } from "../../contexts/CardContext";
 import { toast } from "react-toastify";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ConfirmOrder = () => {
@@ -80,8 +79,6 @@ const ConfirmOrder = () => {
   };
   return (
     <Section>
-      {" "}
-      <ToastContainer />
       <Container>
         <LeftContainer>
           <CardImage src={product?.cardImage}></CardImage>
