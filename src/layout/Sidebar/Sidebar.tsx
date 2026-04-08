@@ -166,8 +166,9 @@ const Sidebar = ({
             }}
             onClick={() => {
               handleLogout();
+              localStorage.setItem("isUser", "false");
               setOpenLogout(false);
-              navigate('/login')
+              navigate("/login");
             }}
           >
             Logout

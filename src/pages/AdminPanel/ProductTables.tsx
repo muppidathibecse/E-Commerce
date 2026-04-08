@@ -8,8 +8,10 @@ import {
   TableBody,
   Paper,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const ProductTables = ({ data }: any) => {
+  const navigate = useNavigate();
   return (
     <Box sx={{ p: 3, backgroundColor: "#F5EEDD" }}>
       {data.map((category: any) => (
@@ -56,6 +58,11 @@ const ProductTables = ({ data }: any) => {
                   >
                     Size
                   </TableCell>
+                  <TableCell
+                    sx={{ width: "10%", textAlign: "center", color: "#F5EEDD" }}
+                  >
+                    Edit
+                  </TableCell>
                 </TableRow>
               </TableHead>
 
@@ -83,6 +90,21 @@ const ProductTables = ({ data }: any) => {
                     </TableCell>
                     <TableCell sx={{ textAlign: "center" }}>
                       {item.defaultSize}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <button
+                        onClick={() => {
+                          navigate("/add-product", {
+                            state: {
+                              item,
+                              productName: category.productName,
+                              mode: "edit",
+                            },
+                          });
+                        }}
+                      >
+                        Eidt
+                      </button>
                     </TableCell>
                   </TableRow>
                 ))}

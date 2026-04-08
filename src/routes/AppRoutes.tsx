@@ -13,24 +13,29 @@ import AdminHomepage from "../pages/AdminPanel/AdminHomepage";
 import AdminRoute from "./privateRoutes/AdminRoute";
 import AddProduct from "../pages/AdminPanel/AddProduct";
 import ViewProduct from "../pages/AdminPanel/ViewProduct";
+import UserRoute from "./privateRoutes/UserRoute";
+import ViewUsers from "../pages/AdminPanel/ViewUsers";
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Start />} />
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/products" element={<Layout />}>
-        <Route path=":productName" element={<Home />} />
-        <Route path=":id/:slug" element={<ConfirmOrder />} />
-        <Route path="order-summary" element={<OrderSummary />} />
-        <Route path="likes" element={<Likes />} />
-        <Route path="json-learning" element={<JsonLearn />} />
+      <Route element={<UserRoute />}>
+        <Route path="/products" element={<Layout />}>
+          <Route path=":productName" element={<Home />} />
+          <Route path=":id/:slug" element={<ConfirmOrder />} />
+          <Route path="order-summary" element={<OrderSummary />} />
+          <Route path="likes" element={<Likes />} />
+          <Route path="json-learning" element={<JsonLearn />} />
+        </Route>
       </Route>
 
       <Route element={<AdminRoute />}>
         <Route path="/admin" element={<AdminHomepage />} />
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/view-product" element={<ViewProduct />} />
+        <Route path="/view-users" element={<ViewUsers />} />
       </Route>
 
       <Route path="*" element={<NotFound />} />

@@ -32,9 +32,22 @@ export const ButtonContainer = styled("div")({
 export const Title = styled("h1")({
   textAlign: "center",
   color: "#06202b",
-  gridColumn: "1/-1",
   margin: 0,
   padding: 0,
   fontSize: "25px",
   fontWeight: 600,
+  justifySelf: "start",
+});
+
+export const BackButton = styled("button")({
+
+  width: "fit-content",
+  backgroundColor: "#06202b",
+  color: "white",
+  borderRadius: "10px",
+  fontWeight: 200,
+  fontSize: "18px",
+  padding: "10px 25px",
+  cursor: "pointer",
+  justifySelf:'end'
 });

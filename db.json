@@ -40,22 +40,22 @@
           "isLiked": false,
           "colors": [
             {
-              "colorCode": "#501c43",
-              "colorName": "Pink"
-            },
-            {
-              "colorCode": "#000000",
+              "colorCode": "#00000",
               "colorName": "Black"
             },
             {
-              "colorCode": "#a3a3a3",
+              "colorCode": "#ff1b1b",
+              "colorName": "Black"
+            },
+            {
+              "colorCode": "#93e6ff",
               "colorName": "Gray"
             }
           ],
           "sizes": [
-            12,
-            25,
-            52
+            1,
+            52,
+            55
           ]
         },
         {
@@ -72,8 +72,8 @@
           "isLiked": false,
           "colors": [
             {
-              "colorCode": "#0003bd",
-              "colorName": "Blue"
+              "colorCode": "#00000",
+              "colorName": "Black"
             },
             {
               "colorCode": "#ff1b1b",
@@ -123,21 +123,21 @@
           ]
         },
         {
-          "id": 1775563074242,
-          "cardName": "Vivo 22 5G",
-          "cardImage": "/assets/productIcons/mobile-3.jpg",
-          "cardReview": "2.4K+ Reviews",
-          "noOfStar": 2,
-          "newRs": 123,
-          "oldRs": 12345,
-          "defaultColorCode": "#0003bd",
-          "defaultColorName": "Blue",
-          "defaultSize": 1,
+          "id": 1775641837353,
+          "cardName": "Vivo",
+          "cardImage": "/assets/productIcons/mobile-2.jpg",
+          "cardReview": "1.1M+ reviews",
+          "noOfStar": 3,
+          "newRs": 12,
+          "oldRs": 23,
+          "defaultColorCode": "#00000",
+          "defaultColorName": "Black",
+          "defaultSize": 2,
           "isLiked": false,
           "colors": [
             {
-              "colorCode": "#0003bd",
-              "colorName": "Blue"
+              "colorCode": "#00000",
+              "colorName": "Black"
             },
             {
               "colorCode": "#ff1b1b",
@@ -255,9 +255,42 @@
             252,
             552
           ]
+        },
+        {
+          "id": 1775642261071,
+          "cardName": "Samsung Galaxy S23 Ultra Black",
+          "cardImage": "/assets/productIcons/tv-1.jpg",
+          "cardReview": "1.1M+ reviews",
+          "noOfStar": 4,
+          "newRs": 34000,
+          "oldRs": 45000,
+          "defaultColorCode": "#00000",
+          "defaultColorName": "Black",
+          "defaultSize": 3,
+          "isLiked": false,
+          "colors": [
+            {
+              "colorCode": "#00000",
+              "colorName": "Black"
+            },
+            {
+              "colorCode": "#ff1b1b",
+              "colorName": "Black"
+            },
+            {
+              "colorCode": "#93e6ff",
+              "colorName": "Gray"
+            }
+          ],
+          "sizes": [
+            1,
+            52,
+            55
+          ]
         }
       ]
     }
   ],
+  "users": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

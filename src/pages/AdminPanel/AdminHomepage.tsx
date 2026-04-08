@@ -1,6 +1,7 @@
 import { Button, Container, Typography, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Section } from "./addProductStyles";
+import { toast } from "react-toastify";
 
 const AdminHomepage = () => {
   const navigate = useNavigate();
@@ -13,8 +14,15 @@ const AdminHomepage = () => {
     navigate("/view-product");
   };
 
+  const handleViewAllUsers = () => {
+    navigate("/view-users");
+  };
+
   const handleLogout = () => {
     localStorage.setItem("isAdmin", "false");
+    toast.success("Logout Successfully!", {
+      className: "custom-toast",
+    });
     navigate("/login");
   };
 
@@ -67,12 +75,28 @@ const AdminHomepage = () => {
             variant="contained"
             color="primary"
             fullWidth
-            onClick={handleLogout}
+            onClick={handleViewAllUsers}
             style={{
               padding: "10px 30px",
               fontSize: "17px",
               backgroundColor: "#06202b",
               color: "white",
+            }}
+          >
+            View All Users
+          </Button>
+
+          <Button
+            variant="contained"
+            color="primary"
+            fullWidth
+            onClick={handleLogout}
+            style={{
+              padding: "10px 30px",
+              fontSize: "17px",
+              backgroundColor: "#F5EEDD",
+              color: "#06202b",
+              border: "1px solid #06202b",
             }}
           >
             Logout

@@ -1,34 +1,58 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { Left, LogoImage, Right, Section } from "./loginStyles";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { addNewUser, isUserExit } from "../../services/produtServices";
 
 const LoginPage = () => {
-  const [loginType, setLoginType] = useState<"user" | "admin">("user");
+  const location = useLocation();
+  const [loginType, setLoginType] = useState<"user" | "admin" | "newUser">(
+    location.state?.message || "user",
+  );
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (loginType === "admin") {
-      if (username === "abc" && password == "abc") {
+      if (username === "a" && password == "a") {
         localStorage.setItem("isAdmin", "true");
         navigate("/admin");
+        toast.success("Login Successfully!", {
+          className: "custom-toast",
+        });
       } else {
         localStorage.setItem("isAdmin", "false");
         toast.error("Invalid Account!", {
           className: "likes-toast",
         });
       }
+    } else if (loginType === "user") {
+      const isAvailable = await isUserExit(username, password);
+      if (isAvailable) {
+        localStorage.setItem("isAdmin", "false");
+        localStorage.setItem("isUser", "true");
+        localStorage.setItem("userName", username);
+        toast.success("Logged In Successfully!", {
+          className: "custom-toast",
+        });
+        navigate("/products/order-summary");
+      } else {
+        toast.error("Invalid Account!", {
+          className: "likes-toast",
+        });
+        navigate("/login");
+      }
     } else {
-      localStorage.setItem("isAdmin", "false");
-      localStorage.setItem("userName", username);
-      console.log("sajsja", loginType, " ", username, " ", password);
-      toast.success("Logged In Successfully!", {
-        className: "custom-toast",
-      });
-      navigate("/products/order-summary");
+      const newUser = {
+        username,
+        password,
+      };
+      await addNewUser(newUser);
+      setUsername("");
+      setPassword("");
+      setLoginType("user");
     }
   };
 
@@ -81,6 +105,22 @@ const LoginPage = () => {
           >
             Admin
           </Button>
+          <Button
+            variant="contained"
+            onClick={() => (
+              setUsername(""),
+              setPassword(""),
+              setLoginType("newUser")
+            )}
+            sx={{
+              backgroundColor: loginType === "newUser" ? "#F5EEDD" : "#303030",
+              color: "#06202B",
+              fontWeight: "bold",
+              padding: "10px 30px",
+            }}
+          >
+            New User
+          </Button>
         </Box>
       </Left>
       <Right>
@@ -93,7 +133,11 @@ const LoginPage = () => {
           }}
         >
           <Typography variant="h4" textAlign="center">
-            {loginType === "admin" ? "Admin Login" : "User Login"}
+            {loginType === "admin"
+              ? "Admin Login"
+              : loginType === "user"
+                ? "User Login"
+                : "Register"}
           </Typography>
 
           <TextField
@@ -146,7 +190,7 @@ const LoginPage = () => {
               padding: "10px",
             }}
           >
-            Login
+            {loginType === "newUser" ? "Register" : "Login"}
           </Button>
         </Box>
       </Right>
