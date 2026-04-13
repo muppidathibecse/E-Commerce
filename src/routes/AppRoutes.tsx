@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 
-import NotFound from "../pages/NotFound/NotFound";
 import Layout from "../layout/Layout";
 import Start from "../pages/Starter/Start";
 import Home from "../pages/Home/Home";
@@ -38,7 +37,7 @@ const AppRoutes = () => {
         <Route path="/view-users" element={<ViewUsers />} />
       </Route>
 
-      <Route path="*" element={<NotFound />} />
+      <Route path="*" element={<Start />} />
     </Routes>
   );
 };

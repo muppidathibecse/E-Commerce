@@ -1,4 +1,4 @@
-import axios, { all } from "axios";
+import axios from "axios";
 import { toast } from "react-toastify";
 
 const BASE_URL = "http://localhost:3000";
