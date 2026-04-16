@@ -24,7 +24,7 @@ const AddProduct = () => {
   const mode = location.state?.mode || "add";
   const product = location.state?.item || null;
   console.log(mode, " == ", product);
-  const [isMode, setIsMode] = useState<"add" | "edit">(mode);
+  const [isMode] = useState<"add" | "edit">(mode);
   const {
     register,
     handleSubmit,

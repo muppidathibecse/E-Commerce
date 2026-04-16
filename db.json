@@ -291,6 +291,12 @@
       ]
     }
   ],
-  "users": [],
+  "users": [
+    {
+      "username": "Aa",
+      "password": "Aa",
+      "id": "Jh9K53P3Vow"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
